@@ -18,8 +18,8 @@ func OpenApplications() {
 	fmt.Println("*******************************************************")
 	urls := urlFinder.UrlFinder()
 	openUrls(urls)
-	openSlack()
-	openIntelliJ()
+	//openSlack()
+	//openIntelliJ()
 	fmt.Println("*******************************************************")
 }
 
