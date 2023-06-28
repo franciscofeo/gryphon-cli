@@ -5,11 +5,11 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"startup/api"
 	"startup/api/github/response"
+	"startup/api/util"
 )
 
-func CheckStatus() (*api.StatusInfo, error) {
+func CheckStatus() (*util.StatusInfo, error) {
 	var githubStatusPageResponse response.GithubStatusPageResponse
 
 	resp, err := http.Get("https://www.githubstatus.com/api/v2/status.json")
@@ -31,7 +31,7 @@ func CheckStatus() (*api.StatusInfo, error) {
 		return nil, err
 	}
 
-	return &api.StatusInfo{
+	return &util.StatusInfo{
 		Name:        githubStatusPageResponse.Page.Name,
 		UpdatedAt:   githubStatusPageResponse.Page.UpdatedAt,
 		Description: githubStatusPageResponse.Status.Description,

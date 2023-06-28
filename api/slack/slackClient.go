@@ -5,8 +5,8 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"startup/api"
 	"startup/api/slack/response"
+	"startup/api/util"
 )
 
 const (
@@ -15,7 +15,7 @@ const (
 	okDefaultMessage       = "It's everything ok!"
 )
 
-func CheckStatus() (*api.StatusInfo, error) {
+func CheckStatus() (*util.StatusInfo, error) {
 	var slackStatusPageResponse response.SlackStatusPageResponse
 
 	resp, err := http.Get("https://status.slack.com/api/v2.0.0/current")
@@ -40,7 +40,7 @@ func CheckStatus() (*api.StatusInfo, error) {
 	return buildResponse(slackStatusPageResponse), nil
 }
 
-func buildResponse(pageResponse response.SlackStatusPageResponse) *api.StatusInfo {
+func buildResponse(pageResponse response.SlackStatusPageResponse) *util.StatusInfo {
 	var description string
 	if pageResponse.Status == "active" {
 		description = incidentDefaultMessage
@@ -48,9 +48,9 @@ func buildResponse(pageResponse response.SlackStatusPageResponse) *api.StatusInf
 		description = okDefaultMessage
 	}
 
-	return &api.StatusInfo{
+	return &util.StatusInfo{
 		Name:        applicationName,
-		UpdatedAt:   pageResponse.DateUpdated,
+		UpdatedAt:   pageResponse.DateUpdated + "Z",
 		Description: description,
 	}
 }

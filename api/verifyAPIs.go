@@ -8,12 +8,6 @@ import (
 	"startup/api/util"
 )
 
-type StatusInfo struct {
-	Name        string
-	UpdatedAt   string
-	Description string
-}
-
 func VerifyAPIs() {
 	fmt.Println("***************************************")
 	checkGithubStatus()
