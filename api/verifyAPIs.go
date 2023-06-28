@@ -4,11 +4,20 @@ import (
 	"fmt"
 	"log"
 	"startup/api/github"
+	"startup/api/slack"
+	"startup/api/util"
 )
+
+type StatusInfo struct {
+	Name        string
+	UpdatedAt   string
+	Description string
+}
 
 func VerifyAPIs() {
 	fmt.Println("***************************************")
 	checkGithubStatus()
+	checkSlackStatus()
 	fmt.Println("***************************************")
 }
 
@@ -18,9 +27,14 @@ func checkGithubStatus() {
 		log.Fatal("Error when checking Github Status Page informations.")
 		return
 	}
+	util.GenerateAPIsInformationMessage(resp)
+}
 
-	fmt.Printf("Checking %s APIs Status \n", resp.Name)
-	fmt.Printf("Status: %s \n", resp.Description)
-	fmt.Printf("Last Update: %s \n", resp.UpdatedAt)
-	fmt.Println("-------------------")
+func checkSlackStatus() {
+	resp, err := slack.CheckStatus()
+	if err != nil {
+		log.Fatal("Error when checking Slack Status Page informations.")
+		return
+	}
+	util.GenerateAPIsInformationMessage(resp)
 }

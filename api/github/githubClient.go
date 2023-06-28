@@ -5,16 +5,11 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"startup/api"
 	"startup/api/github/response"
 )
 
-type StatusInfo struct {
-	Name        string
-	UpdatedAt   string
-	Description string
-}
-
-func CheckStatus() (*StatusInfo, error) {
+func CheckStatus() (*api.StatusInfo, error) {
 	var githubStatusPageResponse response.GithubStatusPageResponse
 
 	resp, err := http.Get("https://www.githubstatus.com/api/v2/status.json")
@@ -36,7 +31,7 @@ func CheckStatus() (*StatusInfo, error) {
 		return nil, err
 	}
 
-	return &StatusInfo{
+	return &api.StatusInfo{
 		Name:        githubStatusPageResponse.Page.Name,
 		UpdatedAt:   githubStatusPageResponse.Page.UpdatedAt,
 		Description: githubStatusPageResponse.Status.Description,
