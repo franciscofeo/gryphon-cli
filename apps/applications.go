@@ -25,7 +25,7 @@ func OpenApplications() {
 
 func openUrls(urls map[string]string) {
 	for url, name := range urls {
-		fmt.Printf("Opening %s in default browser \n", name)
+		fmt.Printf("Opening %s in default browser! \n", name)
 		err := exec.Command(defaultBrowser, url).Start()
 		if err != nil {
 			log.Fatal(err)
@@ -49,5 +49,5 @@ func openIntelliJ() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	time.Sleep(500 * time.Millisecond)
+	time.Sleep(650 * time.Millisecond)
 }

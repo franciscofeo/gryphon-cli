@@ -3,16 +3,17 @@ package api
 import (
 	"fmt"
 	"log"
+	"startup/api/atlassian"
 	"startup/api/github"
 	"startup/api/slack"
 	"startup/api/util"
 )
 
 func VerifyAPIs() {
-	fmt.Println("***************************************")
 	checkGithubStatus()
 	checkSlackStatus()
-	fmt.Println("***************************************")
+	checkAtlassianStatus()
+	fmt.Println("*******************************************************")
 }
 
 func checkGithubStatus() {
@@ -27,7 +28,16 @@ func checkGithubStatus() {
 func checkSlackStatus() {
 	resp, err := slack.CheckStatus()
 	if err != nil {
-		log.Fatal("Error when checking Slack Status Page informations.")
+		log.Fatal("Error when checking Slack Status Page information.")
+		return
+	}
+	util.GenerateAPIsInformationMessage(resp)
+}
+
+func checkAtlassianStatus() {
+	resp, err := atlassian.CheckStatus()
+	if err != nil {
+		log.Fatal("Error when checking Atlassian Status Page information.")
 		return
 	}
 	util.GenerateAPIsInformationMessage(resp)

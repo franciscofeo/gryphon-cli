@@ -9,10 +9,12 @@ import (
 	"startup/api/util"
 )
 
+const url = "https://www.githubstatus.com/api/v2/status.json"
+
 func CheckStatus() (*util.StatusInfo, error) {
 	var githubStatusPageResponse response.GithubStatusPageResponse
 
-	resp, err := http.Get("https://www.githubstatus.com/api/v2/status.json")
+	resp, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
 		return nil, err

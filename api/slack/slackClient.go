@@ -13,12 +13,13 @@ const (
 	applicationName        = "Slack"
 	incidentDefaultMessage = "There is an incident!"
 	okDefaultMessage       = "It's everything ok!"
+	url                    = "https://status.slack.com/api/v2.0.0/current"
 )
 
 func CheckStatus() (*util.StatusInfo, error) {
 	var slackStatusPageResponse response.SlackStatusPageResponse
 
-	resp, err := http.Get("https://status.slack.com/api/v2.0.0/current")
+	resp, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
 		return nil, err
