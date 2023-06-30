@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"startup/api"
+	"startup/apis"
 	"startup/apps"
 	"startup/cmd"
 )
@@ -15,5 +15,5 @@ func exec() {
 	fmt.Println("Good Morning!")
 
 	apps.OpenApplications()
-	api.VerifyAPIs()
+	apis.VerifyAPIs()
 }

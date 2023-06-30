@@ -5,8 +5,8 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"startup/api/github/response"
-	"startup/api/util"
+	"startup/apis/github/response"
+	"startup/apis/util"
 )
 
 const url = "https://www.githubstatus.com/api/v2/status.json"

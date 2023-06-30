@@ -5,8 +5,8 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"startup/api/atlassian/response"
-	"startup/api/util"
+	"startup/apis/atlassian/response"
+	"startup/apis/util"
 )
 
 const url = "https://status.atlassian.com/api/v2/status.json"

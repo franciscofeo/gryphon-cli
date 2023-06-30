@@ -1,12 +1,12 @@
-package api
+package apis
 
 import (
 	"fmt"
 	"log"
-	"startup/api/atlassian"
-	"startup/api/github"
-	"startup/api/slack"
-	"startup/api/util"
+	"startup/apis/atlassian"
+	"startup/apis/github"
+	"startup/apis/slack"
+	"startup/apis/util"
 )
 
 func VerifyAPIs() {

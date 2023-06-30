@@ -5,8 +5,8 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"startup/api/slack/response"
-	"startup/api/util"
+	"startup/apis/slack/response"
+	"startup/apis/util"
 )
 
 const (
