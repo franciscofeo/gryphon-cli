@@ -1,27 +1,33 @@
+/*
+Copyright © 2023 Francisco Angelo <franciscoangelo.dev@gmail.com>
+*/
+
 package cmd
 
 import (
 	"os"
+	"startup/cmd/api"
+	"startup/cmd/app"
+	"startup/cmd/run"
 
 	"github.com/spf13/cobra"
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "startup",
-	Short: "A simple CLI to bring some information and start main applications",
+	Use:   "gryphon",
+	Short: "A simple CLI to bring some information and start main apps",
 	Long: `⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⣠⠀⠂⠠⢀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠈⠐⢄⠀⠑⡩⢂⠀⠀⠀⠀⠀⠀Gryphon Startup is an application to bring information about the main APIs used in the development world: GitHub, Slack, Atlassian and more.⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⡀⠀⢁⠀⢀⡆⠃⠀⠀⠀⠀⠀Furthermore, it start essentials applications with a single command to improve your time.⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠈⠐⢄⠀⠑⡩⢂⠀⠀⠀⠀⠀⠀Gryphon Startup is an application to bring information about the main APIs used in the web development world: GitHub, Slack, Atlassian and more.⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⡀⠀⢁⠀⢀⡆⠃⠀⠀⠀⠀⠀Furthermore, it starts essentials apps with a single command to improve your time.⠀⠀⠀⠀⠀⠀⠀
 ⠀⢀⠀⠔⠂⠂⠅⠀⠘⠀⢤⠀⣄⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠈⠈⠐⠀⠀⢨⠠⢁⠜⠁⢔⠌⠆⠀⠀⠀⠀Author: Francisco Angelo⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⢀⠊⠀⠀⠀⠀⠀⠠⠒⡡⠊⠀⠀⠀⠀⠀Contact: linkedin.com/francisco-angelo⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠸⠀⠀⠀⡀⠀⠀⠠⡈⠀⢐⠔⢐⠠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠈⠈⠐⠀⠀⢨⠠⢁⠜⠁⢔⠌⠆⠀⠀⠀⠀ Author:	Francisco Angelo⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢀⠊⠀⠀⠀⠀⠀⠠⠒⡡⠊⠀⠀⠀⠀⠀ LinkedIn:	linkedin.com/in/francisco-angelo⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠸⠀⠀⠀⡀⠀⠀⠠⡈⠀⢐⠔⢐⠠⡀⠀⠀Email:	franciscoangelo.dev@gmail.com⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠑⠀⣊⠀⠀⠀⠀⠈⠢⠘⠇⠈⠐⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⢀⠀⡱⠈⢂⠀⠀⠀⠀⡠⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠰⠭⠤⠌⠀⠰⠬⠤⠥⠤⠤⠄⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
 `,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
@@ -47,4 +53,11 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	addSubCommandPalettes()
+}
+
+func addSubCommandPalettes() {
+	rootCmd.AddCommand(app.AppCmd)
+	rootCmd.AddCommand(run.RunCmd)
+	rootCmd.AddCommand(api.ApiCmd)
 }
