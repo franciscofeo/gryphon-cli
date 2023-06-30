@@ -6,6 +6,12 @@ package app
 
 import (
 	"github.com/spf13/cobra"
+	"startup/apps"
+)
+
+const (
+	listFlagName      = "list"
+	listFlagShorthand = "l"
 )
 
 // AppCmd represents the app command
@@ -13,13 +19,20 @@ var AppCmd = &cobra.Command{
 	Use:   "app",
 	Short: "App is a palette that contains application runner commands",
 	Long:  ``,
-	Run: func(cmd *cobra.Command, args []string) {
+	Run:   main,
+}
 
-	},
+func main(cmd *cobra.Command, args []string) {
+	showList, _ := cmd.Flags().GetBool(listFlagName)
+	if showList {
+		apps.ListApplications()
+	} else {
+		_ = cmd.Help()
+	}
 }
 
 func init() {
-	AppCmd.Flags().BoolP("list", "l", false, "List all available apps")
+	AppCmd.Flags().BoolP(listFlagName, listFlagShorthand, false, "List all available apps")
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command

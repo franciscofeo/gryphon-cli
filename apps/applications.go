@@ -23,6 +23,14 @@ func OpenApplications() {
 	fmt.Println("*******************************************************")
 }
 
+func ListApplications() {
+	fmt.Println("List of available applications:")
+	urlList := urlFinder.UrlFinder()
+	for _, name := range urlList {
+		fmt.Println("-" + name)
+	}
+}
+
 func openUrls(urls map[string]string) {
 	for url, name := range urls {
 		fmt.Printf("Opening %s in default browser! \n", name)
