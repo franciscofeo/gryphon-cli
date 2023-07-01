@@ -1,14 +1,9 @@
 package main
 
 import (
-	"fmt"
-	"startup/api"
-	"startup/apps"
+	"gryphon/cmd"
 )
 
 func main() {
-	fmt.Println("Good Morning!")
-
-	apps.OpenApplications()
-	api.VerifyAPIs()
+	cmd.Execute()
 }

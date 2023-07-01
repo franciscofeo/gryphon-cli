@@ -2,9 +2,10 @@ package apps
 
 import (
 	"fmt"
+	"gryphon/apps/urlFinder"
 	"log"
 	"os/exec"
-	"startup/urlFinder"
+	"strings"
 	"time"
 )
 
@@ -14,18 +15,48 @@ const (
 	intelliJ       = "intellij-idea-ultimate"
 )
 
-func OpenApplications() {
-	fmt.Println("*******************************************************")
-	urls := urlFinder.UrlFinder()
-	openUrls(urls)
-	openSlack()
-	openIntelliJ()
-	fmt.Println("*******************************************************")
+var appHandler = map[string]func(){
+	slack:     openSlack,
+	"browser": openUrls,
+	intelliJ:  openIntelliJ,
 }
 
-func openUrls(urls map[string]string) {
+func OpenApplications() {
+	fmt.Println("Opening applications:")
+	openUrls()
+	openSlack()
+	openIntelliJ()
+}
+
+func ListAvailableApplications() {
+	fmt.Println("List of available URLs:")
+	urlList := urlFinder.UrlFinder()
+	for _, name := range urlList {
+		fmt.Println("- " + name)
+	}
+
+	fmt.Println("List of available applications:")
+	for name := range appHandler {
+		fmt.Println("- " + name)
+	}
+}
+
+func OpenSingleApplication(name string) error {
+	nameFormatted := strings.ToLower(name)
+	handler, ok := appHandler[nameFormatted]
+	if ok {
+		handler()
+		return nil
+	} else {
+		return fmt.Errorf("application not found")
+	}
+}
+
+func openUrls() {
+	urls := urlFinder.UrlFinder()
+
 	for url, name := range urls {
-		fmt.Printf("Opening %s in default browser! \n", name)
+		fmt.Printf("-"+" Opening %s in default defaultBrowser! \n", name)
 		err := exec.Command(defaultBrowser, url).Start()
 		if err != nil {
 			log.Fatal(err)
@@ -35,7 +66,7 @@ func openUrls(urls map[string]string) {
 }
 
 func openSlack() {
-	fmt.Println("Opening Slack!")
+	fmt.Println("-" + " Opening Slack!")
 	err := exec.Command(slack).Start()
 	if err != nil {
 		log.Fatal(err)
@@ -44,7 +75,7 @@ func openSlack() {
 }
 
 func openIntelliJ() {
-	fmt.Println("Opening IntelliJ IDEA!")
+	fmt.Println("-" + " Opening IntelliJ IDEA!")
 	err := exec.Command(intelliJ).Start()
 	if err != nil {
 		log.Fatal(err)

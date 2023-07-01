@@ -1,0 +1,6 @@
+run-lint:
+	go fmt ./...
+	golangci-lint -v run ./...
+
+build:
+	go build -v -o gryphon

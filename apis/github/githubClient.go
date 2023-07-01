@@ -2,11 +2,11 @@ package github
 
 import (
 	"encoding/json"
+	"gryphon/apis/github/response"
+	"gryphon/apis/util"
 	"io"
 	"log"
 	"net/http"
-	"startup/api/github/response"
-	"startup/api/util"
 )
 
 const url = "https://www.githubstatus.com/api/v2/status.json"

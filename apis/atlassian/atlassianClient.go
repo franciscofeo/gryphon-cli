@@ -2,11 +2,11 @@ package atlassian
 
 import (
 	"encoding/json"
+	"gryphon/apis/atlassian/response"
+	"gryphon/apis/util"
 	"io"
 	"log"
 	"net/http"
-	"startup/api/atlassian/response"
-	"startup/api/util"
 )
 
 const url = "https://status.atlassian.com/api/v2/status.json"
