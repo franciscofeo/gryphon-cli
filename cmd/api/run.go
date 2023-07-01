@@ -12,7 +12,7 @@ import (
 // runCmd represents the run command
 var runCmd = &cobra.Command{
 	Use:   "run",
-	Short: "This command verify all the APIs present in urls.txt file",
+	Short: "This command verify all the APIs",
 	Long:  ``,
 	Run:   verifyAll,
 }
