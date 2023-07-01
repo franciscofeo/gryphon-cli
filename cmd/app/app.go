@@ -33,13 +33,4 @@ func main(cmd *cobra.Command, args []string) {
 
 func init() {
 	AppCmd.Flags().BoolP(listFlagName, listFlagShorthand, false, "List all available apps")
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// appsCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// appsCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

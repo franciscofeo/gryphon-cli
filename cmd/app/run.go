@@ -6,28 +6,41 @@ package app
 
 import (
 	"github.com/spf13/cobra"
+	"startup/apps"
 )
+
+const (
+	nameFlag      = "name"
+	nameShortHand = "n"
+)
+
+var appName string
 
 // runCmd represents the run command
 var runCmd = &cobra.Command{
 	Use:   "run",
-	Short: "Run command open a specific application",
+	Short: "This command opens a specific application",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		_ = cmd.Help()
+		if appName == "" {
+			apps.OpenApplications()
+			return
+		}
+		err := apps.OpenSingleApplication(appName)
+		if err != nil {
+			cmd.Println(err)
+			_ = cmd.Help()
+		}
 	},
 }
 
 func init() {
 	AppCmd.AddCommand(runCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// runCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// runCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	runCmd.Flags().StringVarP(
+		&appName,
+		nameFlag,
+		nameShortHand,
+		"",
+		"Insert the name to open a single application",
+	)
 }
