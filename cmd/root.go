@@ -23,9 +23,9 @@ var rootCmd = &cobra.Command{
 ⠀⠀⠀⠀⣿⣿⣷⠀⣾⣿⣿⡄⠀⢨⣿⣿⣿⣿⣿⣿⣟⡛⠛⠃⠀⠀⠀⠀⠀⠀Gryphon CLI is an application to bring information about the main APIs used in the web development world: GitHub, Slack, Atlassian and more.⠀
 ⠀⠀⠀⠀⣿⣿⡇⢠⣿⣿⣿⣿⡀⢸⣿⣿⣿⣿⣿⠛⠛⠛⠛⠀⠀⠀⠀⠀⠀⠀Furthermore, it starts essentials apps with a single command to improve your time.⠀
 ⠀⠀⠀⠀⣿⣿⡇⢸⣿⣿⣿⣿⣷⡜⣿⣿⣿⣿⣿⣷⣦⣀⠀⠀⠀⢠⣶⠦⠄⠀ 
-⠀⢀⡀⠀⠹⣿⡇⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣤⣾⣅⣀⠀⠀ Author:	Francisco Angelo⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠈⣿⡆⠀⠈⠻⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠉⠁⠀⠀ LinkedIn:	linkedin.com/in/francisco-angelo⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠉⠙⠦⣄⡀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⡀⠀⠀⣀⠀⠀⠀ Email:	franciscoangelo.dev@gmail.com⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢀⡀⠀⠹⣿⡇⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣤⣾⣅⣀⠀⠀ Author:	 Francisco Angelo⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠈⣿⡆⠀⠈⠻⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠉⠁⠀⠀ LinkedIn: linkedin.com/in/francisco-angelo⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠉⠙⠦⣄⡀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⡀⠀⠀⣀⠀⠀⠀ Email:	 franciscoangelo.dev@gmail.com⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠈⣻⡆⠀⠀⠈⠙⣛⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⣷⣿⠛⠓⠀⠀
 ⠀⠀⠀⠀⢀⣾⠟⠁⠀⢀⣰⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠈⠙⠿⠀⠀⠀
 ⠀⠀⠀⠀⣿⣇⣀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
