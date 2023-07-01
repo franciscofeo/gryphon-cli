@@ -17,6 +17,7 @@ const (
 	sleepDurationFlagName  = "sleep"
 	sleepDurationShorthand = "s"
 	defaultDuration        = 400
+	maximumSleepDuration   = 600
 )
 
 var sleepDuration string
@@ -40,7 +41,7 @@ func sleep(duration string) {
 		time.Sleep(defaultDuration * time.Millisecond)
 	} else {
 		value, _ := strconv.Atoi(duration)
-		if value <= 600 {
+		if value <= maximumSleepDuration {
 			time.Sleep(time.Duration(value) * time.Millisecond)
 		} else {
 			time.Sleep(defaultDuration * time.Millisecond)
