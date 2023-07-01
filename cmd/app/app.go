@@ -25,7 +25,7 @@ var AppCmd = &cobra.Command{
 func listApps(cmd *cobra.Command, args []string) {
 	showList, _ := cmd.Flags().GetBool(listFlagName)
 	if showList {
-		apps.ListApplications()
+		apps.ListAvailableApplications()
 	} else {
 		_ = cmd.Help()
 	}

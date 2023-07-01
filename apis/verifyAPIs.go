@@ -10,6 +10,14 @@ import (
 	"sync"
 )
 
+var (
+	availableAPIs = []string{
+		"GitHub",
+		"Slack",
+		"Atlassian",
+	}
+)
+
 func VerifyAPIs() {
 	var wg sync.WaitGroup
 	wg.Add(3)
@@ -21,6 +29,13 @@ func VerifyAPIs() {
 	go checkAtlassianStatus(&wg)
 
 	wg.Wait()
+}
+
+func ListAvailableAPIs() {
+	fmt.Println("Available APIs to check the status:")
+	for _, api := range availableAPIs {
+		fmt.Println("- " + api)
+	}
 }
 
 func checkGithubStatus(wg *sync.WaitGroup) {

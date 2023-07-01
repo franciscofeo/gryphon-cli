@@ -28,7 +28,7 @@ func OpenApplications() {
 	openIntelliJ()
 }
 
-func ListApplications() {
+func ListAvailableApplications() {
 	fmt.Println("List of available URLs:")
 	urlList := urlFinder.UrlFinder()
 	for _, name := range urlList {
