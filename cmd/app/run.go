@@ -19,7 +19,7 @@ var appName string
 // runCmd represents the run command
 var runCmd = &cobra.Command{
 	Use:   "run",
-	Short: "This command opens a specific application",
+	Short: "This command opens all applications and URLs or you can specify the name to open a single app",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		if appName == "" {
