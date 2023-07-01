@@ -5,10 +5,10 @@ Copyright © 2023 Francisco Angelo <franciscoangelo.dev@gmail.com>
 package cmd
 
 import (
+	"gryphon/cmd/api"
+	"gryphon/cmd/app"
+	"gryphon/cmd/run"
 	"os"
-	"startup/cmd/api"
-	"startup/cmd/app"
-	"startup/cmd/run"
 
 	"github.com/spf13/cobra"
 )

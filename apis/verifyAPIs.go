@@ -2,11 +2,11 @@ package apis
 
 import (
 	"fmt"
+	"gryphon/apis/atlassian"
+	"gryphon/apis/github"
+	"gryphon/apis/slack"
+	"gryphon/apis/util"
 	"log"
-	"startup/apis/atlassian"
-	"startup/apis/github"
-	"startup/apis/slack"
-	"startup/apis/util"
 )
 
 func VerifyAPIs() {

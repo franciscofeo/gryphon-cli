@@ -2,9 +2,9 @@ package apps
 
 import (
 	"fmt"
+	"gryphon/urlFinder"
 	"log"
 	"os/exec"
-	"startup/urlFinder"
 	"strings"
 	"time"
 )
@@ -36,7 +36,7 @@ func ListApplications() {
 	}
 
 	fmt.Println("List of available applications:")
-	for name, _ := range appHandler {
+	for name := range appHandler {
 		fmt.Println("- " + name)
 	}
 }
@@ -44,7 +44,7 @@ func ListApplications() {
 func OpenSingleApplication(name string) error {
 	nameFormatted := strings.ToLower(name)
 	handler, ok := appHandler[nameFormatted]
-	if ok == true {
+	if ok {
 		handler()
 		return nil
 	} else {

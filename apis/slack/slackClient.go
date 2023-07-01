@@ -2,11 +2,11 @@ package slack
 
 import (
 	"encoding/json"
+	"gryphon/apis/slack/response"
+	"gryphon/apis/util"
 	"io"
 	"log"
 	"net/http"
-	"startup/apis/slack/response"
-	"startup/apis/util"
 )
 
 const (

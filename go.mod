@@ -1,4 +1,4 @@
-module startup
+module gryphon
 
 go 1.20
 

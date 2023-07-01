@@ -6,8 +6,8 @@ package app
 
 import (
 	"github.com/spf13/cobra"
-	"startup/apps"
-	"startup/utils"
+	"gryphon/apps"
+	"gryphon/utils"
 )
 
 const (
