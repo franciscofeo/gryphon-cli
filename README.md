@@ -14,7 +14,7 @@ stuff like opening essential software using just 1 command! </p>
 
 ## Building the application
 
-It's so simple to build a CLI application, just run the command and the compiled
+It's very simple to build a CLI application, just run the command and the compiled
 program will be created as `./gryphon` in the **root** **directory**.
 
 ```shellscript
