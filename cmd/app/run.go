@@ -7,6 +7,7 @@ package app
 import (
 	"github.com/spf13/cobra"
 	"startup/apps"
+	"startup/utils"
 )
 
 const (
@@ -21,17 +22,19 @@ var runCmd = &cobra.Command{
 	Use:   "run",
 	Short: "This command opens all applications and URLs or you can specify the name to open a single app",
 	Long:  ``,
-	Run: func(cmd *cobra.Command, args []string) {
-		if appName == "" {
-			apps.OpenApplications()
-			return
-		}
-		err := apps.OpenSingleApplication(appName)
-		if err != nil {
-			cmd.Println(err)
-			_ = cmd.Help()
-		}
-	},
+	Run:   openApps,
+}
+
+func openApps(cmd *cobra.Command, args []string) {
+	if utils.IsStringBlank(appName) {
+		apps.OpenApplications()
+		return
+	}
+	err := apps.OpenSingleApplication(appName)
+	if err != nil {
+		cmd.Println(err)
+		_ = cmd.Help()
+	}
 }
 
 func init() {

@@ -8,7 +8,7 @@ type SlackStatusPageResponse struct {
 }
 
 type activeIncidents struct {
-	ID          string   `json:"id"`
+	ID          int32    `json:"id"`
 	DateCreated string   `json:"date_created"`
 	DateUpdated string   `json:"date_updated"`
 	Title       string   `json:"title"`

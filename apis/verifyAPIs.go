@@ -10,10 +10,11 @@ import (
 )
 
 func VerifyAPIs() {
+	fmt.Println("Verifying APIs:")
+	fmt.Println("---------")
 	checkGithubStatus()
 	checkSlackStatus()
 	checkAtlassianStatus()
-	fmt.Println("*******************************************************")
 }
 
 func checkGithubStatus() {

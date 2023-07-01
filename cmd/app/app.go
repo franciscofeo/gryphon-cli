@@ -19,10 +19,10 @@ var AppCmd = &cobra.Command{
 	Use:   "app",
 	Short: "App is a palette that contains application runner commands",
 	Long:  ``,
-	Run:   main,
+	Run:   listApps,
 }
 
-func main(cmd *cobra.Command, args []string) {
+func listApps(cmd *cobra.Command, args []string) {
 	showList, _ := cmd.Flags().GetBool(listFlagName)
 	if showList {
 		apps.ListApplications()
