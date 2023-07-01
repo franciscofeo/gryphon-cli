@@ -12,14 +12,48 @@ stuff like opening essential software using just 1 command! </p>
 <br>
 <br>
 
+## Building the application
+
+It's so simple to build a CLI application, just run the command and the compiled
+program will be created as `./gryphon` in the **root** **directory**.
+
+```shellscript
+    make build
+```
+
 ## Current Modules
-#### API Status Verification
 
-#### Open Essentials Web Development Software
+### API Status Verification
 
-### Commands
+Below are the current APIs that the application will check:
 
-- Help Command
+<div style="text-align: center;">
+
+| API       	| Status Page                   	|
+|-----------	|-------------------------------	|
+| GitHub    	| https://www.githubstatus.com/ 	|
+| Slack     	| https://status.atlassian.com/ 	|
+| Atlassian 	| https://status.atlassian.com/ 	|
+
+</div>
+
+### Open Essentials Web Development Software
+
+Below are the current Software that the application will open automatically:
+
+<div style="text-align: center;">
+
+| Name          	|
+|---------------	|
+| Browser       	|
+| Slack         	|
+| IntelliJ IDEA 	|
+
+</div>
+
+## Commands
+
+- **Help Command**
 ```shellscript
     gryphon -h
 ```
@@ -27,7 +61,7 @@ stuff like opening essential software using just 1 command! </p>
 This command will show a general information about the CLI and the main commands
 or palettes to start using the application.
 
-- Run all modules
+- **Run all modules**
 
 ```shellscript
     gryphon run -s DELAY_DURATION
@@ -39,9 +73,9 @@ of the modules. The default value is 400 milliseconds and the maximum is
 
 This command will execute all modules shown in "Current Modules" section.
 
-#### API Verification Commands
+### API Verification Commands
 
-- Verify All APIs
+- **Verify All APIs**
 
 ```shellscript
     gryphon api run
@@ -49,7 +83,7 @@ This command will execute all modules shown in "Current Modules" section.
 
 Check all APIs status in the official status page.
 
-- Show Available APIs
+- **Show Available APIs**
 
 ```shellscript
     gryphon api -l
@@ -57,9 +91,9 @@ Check all APIs status in the official status page.
 
 List all available APIs to check their status.
 
-#### Opening Software Commands
+### Opening Software Commands
 
-- Open All Programs
+- **Open All Programs**
 
 ```shellscript
     gryphon app run
@@ -67,7 +101,7 @@ List all available APIs to check their status.
 
 Open all programs and URLs present in `urls.txt` file.
 
-- List Available Software
+- **List Available Software**
 
 ```shellscript
     gryphon app -l
@@ -75,7 +109,7 @@ Open all programs and URLs present in `urls.txt` file.
 
 List all available programs to open automatically.
 
-- Open a Specific Software
+- **Open a Specific Software**
 
 ```shellscript
     gryphon app run -n SOFTWARE_NAME
