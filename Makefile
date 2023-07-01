@@ -1,0 +1,2 @@
+run-lint:
+	golang
