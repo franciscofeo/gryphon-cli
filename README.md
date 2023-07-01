@@ -2,8 +2,10 @@
 
 <img style="margin-top: 2em" align="right" src="./.docs/gryphon.png" height="269"> 
 
+<br>
+
 <p style="margin-top: 3em">
-A command line interface application to help improve development time by doing status
+A Command Line Interface application to help improve development time by doing status
 checking of the most used APIs in the world for web development and automating some 
 stuff like opening essential software using just 1 command! </p>
 
