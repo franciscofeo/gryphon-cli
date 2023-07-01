@@ -2,7 +2,7 @@ package apps
 
 import (
 	"fmt"
-	"gryphon/urlFinder"
+	"gryphon/apps/urlFinder"
 	"log"
 	"os/exec"
 	"strings"

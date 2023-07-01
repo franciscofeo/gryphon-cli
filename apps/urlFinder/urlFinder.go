@@ -9,7 +9,7 @@ import (
 func UrlFinder() map[string]string {
 	lines := make(map[string]string)
 
-	fileData, err := os.ReadFile("./urlFinder/urls.txt")
+	fileData, err := os.ReadFile("./urls.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
