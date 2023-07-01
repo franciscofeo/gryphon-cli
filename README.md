@@ -57,7 +57,7 @@ Check all APIs status in the official status page.
 
 List all available APIs to check their status.
 
-#### Open Software
+#### Opening Software Commands
 
 - Open All Programs
 
