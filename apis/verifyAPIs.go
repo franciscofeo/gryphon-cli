@@ -81,7 +81,5 @@ func checkBtgPactualStatus(wg *sync.WaitGroup) {
 
 	resp := btgpactual.CheckStatus()
 
-	for _, api := range resp {
-		util.GenerateAPIsInformationMessage(api)
-	}
+	util.GenerateBtgAPIsInformationMessage(resp)
 }
