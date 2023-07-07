@@ -34,6 +34,7 @@ Below are the current APIs that the application will check:
 | GitHub    	| https://www.githubstatus.com/ 	|
 | Slack     	| https://status.atlassian.com/ 	|
 | Atlassian 	| https://status.atlassian.com/ 	|
+| BTG Pactual   | https://btgpactualempresas.statuspage.io/ |
 
 </div>
 
