@@ -21,20 +21,20 @@ func CheckStatus() (*util.StatusInfo, error) {
 
 	resp, err := http.Get(url)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return nil, err
 	}
 	defer resp.Body.Close()
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return nil, err
 	}
 
 	err = json.Unmarshal(data, &slackStatusPageResponse)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return nil, err
 	}
 

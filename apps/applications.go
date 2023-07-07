@@ -59,7 +59,7 @@ func openUrls() {
 		fmt.Printf("-"+" Opening %s in default defaultBrowser! \n", name)
 		err := exec.Command(defaultBrowser, url).Start()
 		if err != nil {
-			log.Fatal(err)
+			log.Println(err)
 		}
 		time.Sleep(500 * time.Millisecond)
 	}
@@ -69,7 +69,7 @@ func openSlack() {
 	fmt.Println("-" + " Opening Slack!")
 	err := exec.Command(slack).Start()
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 	time.Sleep(500 * time.Millisecond)
 }
@@ -78,7 +78,7 @@ func openIntelliJ() {
 	fmt.Println("-" + " Opening IntelliJ IDEA!")
 	err := exec.Command(intelliJ).Start()
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 	time.Sleep(650 * time.Millisecond)
 }

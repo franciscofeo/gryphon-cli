@@ -43,7 +43,7 @@ func checkGithubStatus(wg *sync.WaitGroup) {
 
 	resp, err := github.CheckStatus()
 	if err != nil {
-		log.Fatal("Error when checking Github Status Page informations.")
+		log.Println("Error when checking Github Status Page informations.")
 		return
 	}
 	util.GenerateAPIsInformationMessage(resp)
@@ -54,7 +54,7 @@ func checkSlackStatus(wg *sync.WaitGroup) {
 
 	resp, err := slack.CheckStatus()
 	if err != nil {
-		log.Fatal("Error when checking Slack Status Page information.")
+		log.Println("Error when checking Slack Status Page information.")
 		return
 	}
 	util.GenerateAPIsInformationMessage(resp)
@@ -65,7 +65,7 @@ func checkAtlassianStatus(wg *sync.WaitGroup) {
 
 	resp, err := atlassian.CheckStatus()
 	if err != nil {
-		log.Fatal("Error when checking Atlassian Status Page information.")
+		log.Println("Error when checking Atlassian Status Page information.")
 		return
 	}
 	util.GenerateAPIsInformationMessage(resp)
