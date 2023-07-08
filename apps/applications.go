@@ -10,15 +10,17 @@ import (
 )
 
 const (
-	defaultBrowser = "xdg-open"
-	slack          = "slack"
-	intelliJ       = "intellij-idea-ultimate"
+	defaultBrowser   = "xdg-open"
+	slack            = "slack"
+	intelliJUltimate = "intellij-idea-ultimate"
+	intelliJV1       = "intellij"
+	intelliJV2       = "idea"
 )
 
 var appHandler = map[string]func(){
-	slack:     openSlack,
-	"browser": openUrls,
-	intelliJ:  openIntelliJ,
+	slack:            openSlack,
+	"browser":        openUrls,
+	intelliJUltimate: openIntelliJ,
 }
 
 func OpenApplications() {
@@ -76,9 +78,21 @@ func openSlack() {
 
 func openIntelliJ() {
 	fmt.Println("-" + " Opening IntelliJ IDEA!")
-	err := exec.Command(intelliJ).Start()
+
+	err := exec.Command(intelliJUltimate).Start()
 	if err != nil {
 		log.Println(err)
 	}
+
+	err = exec.Command(intelliJV1).Start()
+	if err != nil {
+		log.Println(err)
+	}
+
+	err = exec.Command(intelliJV2).Start()
+	if err != nil {
+		log.Println(err)
+	}
+
 	time.Sleep(650 * time.Millisecond)
 }
