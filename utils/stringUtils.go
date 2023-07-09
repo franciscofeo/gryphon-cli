@@ -9,3 +9,8 @@ func IsStringBlank(s string) bool {
 		return false
 	}
 }
+
+func ToLowerCaseAndRemoveWhiteSpaces(s string) string {
+	lowerCaseString := strings.ToLower(s)
+	return strings.ReplaceAll(lowerCaseString, " ", "-")
+}
