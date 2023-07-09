@@ -2,6 +2,7 @@ package util
 
 import (
 	"fmt"
+	"time"
 )
 
 func GenerateAPIsInformationMessage(resp *StatusInfo) {
@@ -21,4 +22,17 @@ func GenerateBtgAPIsInformationMessage(resp []*StatusInfo) {
 		fmt.Println()
 	}
 	fmt.Println("-------------------")
+}
+
+func ConvertToStatusInfoStruct(apiStatusList WebScrapingApiStatusList) []StatusInfo {
+	var statusInfoList []StatusInfo
+	for _, api := range apiStatusList {
+		statusInfoList = append(statusInfoList, StatusInfo{
+			Name:        api.Name,
+			UpdatedAt:   time.Now().UTC().Format("2006-01-02T15:04:05.000Z"),
+			Description: api.Status,
+		})
+	}
+
+	return statusInfoList
 }

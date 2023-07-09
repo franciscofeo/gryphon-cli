@@ -5,3 +5,10 @@ type StatusInfo struct {
 	UpdatedAt   string
 	Description string
 }
+
+type WebScrapingApiStatus struct {
+	Name   string
+	Status string
+}
+
+type WebScrapingApiStatusList []WebScrapingApiStatus
