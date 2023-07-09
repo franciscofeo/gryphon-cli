@@ -2,7 +2,7 @@ package util
 
 import (
 	"fmt"
-	"strings"
+	"gryphon/utils"
 	"time"
 )
 
@@ -17,7 +17,7 @@ func GenerateWebScrapingAPIsInformationMessage(resp []StatusInfo, apiName string
 	fmt.Printf("Checking %s APIs: \n", apiName)
 	fmt.Println()
 	for _, statusInfo := range resp {
-		statusInfoNameFormatted := strings.ReplaceAll(statusInfo.Name, "-", " ")
+		statusInfoNameFormatted := utils.ToTitleAndRemoveHyphen(statusInfo.Name)
 		fmt.Printf("Checking %s APIs Status \n", statusInfoNameFormatted)
 		fmt.Printf("Status: %s \n", statusInfo.Description)
 		fmt.Printf("Last Update: %s \n", statusInfo.UpdatedAt)
