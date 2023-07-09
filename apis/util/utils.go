@@ -2,6 +2,7 @@ package util
 
 import (
 	"fmt"
+	"strings"
 	"time"
 )
 
@@ -12,11 +13,12 @@ func GenerateAPIsInformationMessage(resp *StatusInfo) {
 	fmt.Println("-------------------")
 }
 
-func GenerateBtgAPIsInformationMessage(resp []*StatusInfo) {
-	fmt.Println("Checking BTG APIs: ")
+func GenerateWebScrapingAPIsInformationMessage(resp []StatusInfo, apiName string) {
+	fmt.Printf("Checking %s APIs: \n", apiName)
 	fmt.Println()
 	for _, statusInfo := range resp {
-		fmt.Printf("Checking %s APIs Status \n", statusInfo.Name)
+		statusInfoNameFormatted := strings.ReplaceAll(statusInfo.Name, "-", " ")
+		fmt.Printf("Checking %s APIs Status \n", statusInfoNameFormatted)
 		fmt.Printf("Status: %s \n", statusInfo.Description)
 		fmt.Printf("Last Update: %s \n", statusInfo.UpdatedAt)
 		fmt.Println()

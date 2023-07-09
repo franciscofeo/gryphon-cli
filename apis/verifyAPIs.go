@@ -3,6 +3,7 @@ package apis
 import (
 	"fmt"
 	"gryphon/apis/atlassian"
+	"gryphon/apis/azure"
 	"gryphon/apis/btgpactual"
 	"gryphon/apis/github"
 	"gryphon/apis/slack"
@@ -17,6 +18,7 @@ var (
 		"Slack",
 		"Atlassian",
 		"BTG Pactual",
+		"Azure",
 	}
 
 	waitGroupCounter = len(availableAPIs)
@@ -32,6 +34,7 @@ func VerifyAPIs() {
 	go checkSlackStatus(&wg)
 	go checkAtlassianStatus(&wg)
 	go checkBtgPactualStatus(&wg)
+	go checkAzureStatus(&wg)
 
 	wg.Wait()
 }
@@ -81,5 +84,13 @@ func checkBtgPactualStatus(wg *sync.WaitGroup) {
 
 	resp := btgpactual.CheckStatus()
 
-	util.GenerateBtgAPIsInformationMessage(resp)
+	util.GenerateWebScrapingAPIsInformationMessage(resp, availableAPIs[3])
+}
+
+func checkAzureStatus(wg *sync.WaitGroup) {
+	defer wg.Done()
+
+	resp := azure.CheckStatus()
+
+	util.GenerateWebScrapingAPIsInformationMessage(resp, availableAPIs[4])
 }

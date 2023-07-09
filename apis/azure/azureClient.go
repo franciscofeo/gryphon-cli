@@ -1,7 +1,6 @@
 package azure
 
 import (
-	"fmt"
 	"github.com/gocolly/colly"
 	"gryphon/apis/util"
 	"gryphon/utils"
@@ -31,7 +30,6 @@ func CheckStatus() []util.StatusInfo {
 		exists, shouldProcess := services[serviceName]
 		if exists && shouldProcess {
 			status := e.ChildText("td:nth-child(4)")
-			fmt.Println("Existe o serviço: ", serviceName)
 			apiInfo := util.WebScrapingApiStatus{
 				Name:   serviceName,
 				Status: status,
