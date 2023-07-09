@@ -29,12 +29,13 @@ Below are the current APIs that the application will check:
 
 <div style="text-align: center;">
 
-| API       	| Status Page                   	|
-|-----------	|-------------------------------	|
-| GitHub    	| https://www.githubstatus.com/ 	|
-| Slack     	| https://status.atlassian.com/ 	|
-| Atlassian 	| https://status.atlassian.com/ 	|
-| BTG Pactual   | https://btgpactualempresas.statuspage.io/ |
+| API       	 | Status Page                   	             | Additional Information                                                               | 
+|-------------|---------------------------------------------|--------------------------------------------------------------------------------------|
+| GitHub    	 | https://www.githubstatus.com/ 	             |                                                                                      |
+| Slack     	 | https://status.atlassian.com/ 	             |                                                                                      |
+| Atlassian 	 | https://status.atlassian.com/ 	             |                                                                                      |
+| BTG Pactual | https://btgpactualempresas.statuspage.io/   |                                                                                      |
+| Azure       | https://azure.status.microsoft/en-us/status | Services: Event Hubs, Service Bus, Azure Cosmos DB and Azure Database for PostgreSQL |
 
 </div>
 
@@ -44,11 +45,11 @@ Below are the current Software that the application will open automatically:
 
 <div style="text-align: center;">
 
-| Name          	|
-|---------------	|
-| Browser       	|
-| Slack         	|
-| IntelliJ IDEA 	|
+| Name          	 |
+|-----------------|
+| Browser       	 |
+| Slack         	 |
+| IntelliJ IDEA 	 |
 
 </div>
 
