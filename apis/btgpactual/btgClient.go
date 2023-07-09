@@ -2,6 +2,7 @@ package btgpactual
 
 import (
 	"github.com/gocolly/colly"
+	"gryphon/apis/btgpactual/response"
 	"gryphon/apis/util"
 	"log"
 	"time"
@@ -11,22 +12,15 @@ const (
 	url = "https://btgpactualempresas.statuspage.io/"
 )
 
-type ApiStatus struct {
-	Name   string
-	Status string
-}
-
-type ApiStatusList []ApiStatus
-
 func CheckStatus() []*util.StatusInfo {
-	var apiStatusList ApiStatusList
+	var apiStatusList response.ApiStatusList
 
 	c := colly.NewCollector()
 
 	c.OnHTML("div.child-components-container div.component-inner-container", func(e *colly.HTMLElement) {
 		name := e.ChildText(".name")
 		status := e.ChildText(".component-status")
-		apiInfo := ApiStatus{
+		apiInfo := response.ApiStatus{
 			Name:   name,
 			Status: status,
 		}
@@ -42,7 +36,7 @@ func CheckStatus() []*util.StatusInfo {
 	return convertToStatusInfoStruct(apiStatusList)
 }
 
-func convertToStatusInfoStruct(apiStatusList ApiStatusList) []*util.StatusInfo {
+func convertToStatusInfoStruct(apiStatusList response.ApiStatusList) []*util.StatusInfo {
 	var statusInfoList []*util.StatusInfo
 	for _, api := range apiStatusList {
 		statusInfoList = append(statusInfoList, &util.StatusInfo{
