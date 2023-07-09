@@ -8,9 +8,7 @@ import (
 	"time"
 )
 
-const (
-	url = "https://btgpactualempresas.statuspage.io/"
-)
+const url = "https://btgpactualempresas.statuspage.io/"
 
 func CheckStatus() []*util.StatusInfo {
 	var apiStatusList response.ApiStatusList
