@@ -31,16 +31,21 @@ func OpenApplications() {
 }
 
 func ListAvailableApplications() {
-	fmt.Println("List of available URLs:")
-	urlList := urlFinder.UrlFinder()
-	for _, name := range urlList {
-		fmt.Println("- " + name)
-	}
-
 	fmt.Println("List of available applications:")
 	for name := range appHandler {
 		fmt.Println("- " + name)
 	}
+
+	fmt.Println("\nList of available URLs:")
+	urlList, err := urlFinder.UrlFinder()
+	if err != nil {
+		return
+	}
+
+	for _, name := range urlList {
+		fmt.Println("- " + name)
+	}
+
 }
 
 func OpenSingleApplication(name string) error {
@@ -55,7 +60,11 @@ func OpenSingleApplication(name string) error {
 }
 
 func openUrls() {
-	urls := urlFinder.UrlFinder()
+	urls, err := urlFinder.UrlFinder()
+	if err != nil {
+		fmt.Println("There is no urls.txt file to open urls in the browser.")
+		return
+	}
 
 	for url, name := range urls {
 		fmt.Printf("-"+" Opening %s in default defaultBrowser! \n", name)

@@ -1,17 +1,18 @@
 package urlFinder
 
 import (
-	"log"
+	"fmt"
 	"os"
 	"strings"
 )
 
-func UrlFinder() map[string]string {
+func UrlFinder() (map[string]string, error) {
 	lines := make(map[string]string)
 
 	fileData, err := os.ReadFile("./urls.txt")
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("- Error to read the file.")
+		return nil, err
 	}
 
 	text := string(fileData)
@@ -21,5 +22,5 @@ func UrlFinder() map[string]string {
 		lines[urlInfo[0]] = urlInfo[1]
 	}
 
-	return lines
+	return lines, nil
 }
